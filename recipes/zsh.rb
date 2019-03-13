@@ -1,6 +1,6 @@
 #
 # Cookbook:: kreedy_workstation
-# Recipe:: default
+# Recipe:: zsh
 #
 # Copyright:: 2019, Kevin Reedy
 #
@@ -16,9 +16,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if node['platform'] == 'mac_os_x'
-  include_recipe 'kreedy_workstation::macos_packages'
-  include_recipe 'kreedy_workstation::macos_dock'
+# TODO: linux
+
+package 'zsh'
+package 'zsh-completions'
+
+# TODO: work on mac without user interaction
+# execute 'chsh -s /bin/zsh' do
+#   not_if 'env | grep SHELL=/bin/zsh'
+# end
+
+git '/Users/kreedy/.oh-my-zsh' do
+  repository 'https://github.com/robbyrussell/oh-my-zsh.git'
+  reference 'master'
+  action :checkout
+  not_if 'test -d /Users/kreedy/.oh-my-zsh'
+  only_if { ::File.exists?('/Users/kreedy') }
 end
 
-include_recipe 'kreedy_workstation::zsh'
+cookbook_file '/Users/kreedy/.zshrc' do
+  source '.zshrc'
+end
