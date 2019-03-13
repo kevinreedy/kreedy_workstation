@@ -1,0 +1,9 @@
+# Maintained by Chef / https://github.com/kevinreedy/kreedy_workstation
+
+[core]
+	editor = vim
+[color]
+	ui = true
+[user]
+	name = Kevin Reedy
+	email = kevinreedy@gmail.com

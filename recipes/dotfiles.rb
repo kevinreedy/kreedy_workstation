@@ -1,6 +1,6 @@
 #
 # Cookbook:: kreedy_workstation
-# Recipe:: default
+# Recipe:: dotfiles
 #
 # Copyright:: 2019, Kevin Reedy
 #
@@ -16,9 +16,24 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if node['platform'] == 'mac_os_x'
-  include_recipe 'kreedy_workstation::macos_packages'
-  include_recipe 'kreedy_workstation::macos_dock'
+# Create needed directories
+%w(
+  .ssh
+).each do |d|
+  directory "/Users/kreedy/#{d}"
 end
 
-include_recipe 'kreedy_workstation::dotfiles'
+# Add files
+%w(
+  .gitconfig
+  .ssh/authorized_keys
+  .tmux.conf
+).each do |f|
+
+  cookbook_file "/Users/kreedy/#{f}" do
+    source f
+  end
+end
+
+# zsh is in its own recipe for now
+include_recipe 'kreedy_workstation::zsh'
