@@ -16,4 +16,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-include_recipe 'kreedy_workstation::macos_packages' if node['platform'] == 'mac_os_x'
+if node['platform'] == 'mac_os_x'
+  include_recipe 'kreedy_workstation::macos_packages'
+  include_recipe 'kreedy_workstation::macos_dock'
+end
