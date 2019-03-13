@@ -18,8 +18,10 @@
 
 # TODO: linux
 
-package 'zsh'
-package 'zsh-completions'
+if node['platform'] == 'mac_os_x'
+  package 'zsh'
+  package 'zsh-completions'
+end
 
 # TODO: work on mac without user interaction
 # execute 'chsh -s /bin/zsh' do
