@@ -22,6 +22,7 @@ homebrew_tap 'heroku/brew'
 
 # Install Homebrew Packages
 package 'awscli'
+package 'gpg'
 package 'hab'
 package 'heroku'
 package 'mtr'
@@ -29,15 +30,13 @@ package 'nmap'
 package 'packer'
 package 'terraform'
 package 'tmux'
+package 'watch'
+package 'wget'
 
 # TODO: see if we need these
-# git
-# gpg
 # libxml2
 # libxslt
 # reattach-to-user-namespace
-# watch
-# wget
 
 # Install Homebrew Cask Packages
 homebrew_cask '1password'
