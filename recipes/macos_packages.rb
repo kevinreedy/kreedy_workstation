@@ -42,22 +42,19 @@ package 'wget'
 homebrew_cask '1password'
 homebrew_cask 'atom'
 homebrew_cask 'docker'
-homebrew_cask 'dropbox'
 homebrew_cask 'firefox'
 homebrew_cask 'google-chrome'
 homebrew_cask 'iterm2'
 homebrew_cask 'ngrok'
+homebrew_cask 'ringcentral-meetings'
 homebrew_cask 'signal'
 homebrew_cask 'skitch'
 homebrew_cask 'slack'
+homebrew_cask 'vagrant'
+homebrew_cask 'virtualbox'
 homebrew_cask 'visual-studio-code'
 homebrew_cask 'vlc'
-
-# TODO: fix these
-# homebrew_cask 'ringcentral-meetings'
-# homebrew_cask 'vagrant'
-# homebrew_cask 'virtualbox'
-# homebrew_cask 'zoomus'
+homebrew_cask 'zoomus'
 
 # TODO: see if we need these
 # flux - do we still need in mojave?
