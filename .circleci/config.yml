@@ -1,0 +1,20 @@
+# Ruby CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-ruby/ for more details
+#
+version: 2
+jobs:
+  build:
+    docker:
+      - image: chef/chefdk:3.8.16
+
+    working_directory: ~/repo
+
+    steps:
+      - checkout
+
+      - run:
+          name: lint
+          command: |
+            chef exec cookstyle
+            chef exec foodcritic --epic-fail any .
