@@ -60,5 +60,6 @@ homebrew_cask 'zoomus'
 # flux - do we still need in mojave?
 # google-drive - which one
 # ms office
-# moom - maybe through app store?
-# pixelmator - app store?
+
+# Add apps from App Store
+include_recipe 'kreedy_workstation::macos_app_store'

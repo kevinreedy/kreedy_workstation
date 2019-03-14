@@ -101,3 +101,5 @@ end
 dock_icon '/Applications/iTerm.app'
 
 dock_icon '/Applications/Utilities/Activity Monitor.app'
+
+dock_icon '/Applications/Pixelmator.app'
