@@ -24,8 +24,8 @@ property :position, [Integer, nil]
 action :create do
   execute "add icon for #{new_resource.app_path}" do
     command "dockutil --add '#{new_resource.app_path}'" \
-      + (new_resource.after ? " --after \"#{new_resource.after}\"" : "") \
-      + (new_resource.position ? " --position #{new_resource.position}" : "")
+      + (new_resource.after ? " --after \"#{new_resource.after}\"" : '') \
+      + (new_resource.position ? " --position #{new_resource.position}" : '')
     not_if "dockutil --list | grep file://#{URI.encode(new_resource.app_path)}"
   end
 end

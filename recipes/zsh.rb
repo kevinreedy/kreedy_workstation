@@ -33,7 +33,7 @@ git '/Users/kreedy/.oh-my-zsh' do
   reference 'master'
   action :checkout
   not_if 'test -d /Users/kreedy/.oh-my-zsh'
-  only_if { ::File.exists?('/Users/kreedy') }
+  only_if { ::File.exist?('/Users/kreedy') }
 end
 
 cookbook_file '/Users/kreedy/.zshrc' do
