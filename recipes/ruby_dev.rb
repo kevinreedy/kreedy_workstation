@@ -22,3 +22,5 @@ asdf_version 'ruby-2.6.2' do
   language 'ruby'
   version '2.6.2'
 end
+
+package 'postgresql'
