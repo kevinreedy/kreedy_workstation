@@ -95,4 +95,4 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export ASDF_DIR=$(brew --prefix asdf)
+source /usr/local/opt/asdf/asdf.sh
