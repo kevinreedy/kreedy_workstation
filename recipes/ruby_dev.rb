@@ -1,6 +1,6 @@
 #
 # Cookbook:: kreedy_workstation
-# Recipe:: default
+# Recipe:: ruby_dev
 #
 # Copyright:: 2019, Kevin Reedy
 #
@@ -16,11 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if node['platform'] == 'mac_os_x'
-  include_recipe 'kreedy_workstation::macos_packages'
-  include_recipe 'kreedy_workstation::macos_dock'
-end
+asdf_plugin 'ruby'
 
-include_recipe 'kreedy_workstation::dotfiles'
-include_recipe 'kreedy_workstation::okta_aws'
-include_recipe 'kreedy_workstation::ruby_dev'
+asdf_version 'ruby-2.6.2' do
+  language 'ruby'
+  version '2.6.2'
+end
