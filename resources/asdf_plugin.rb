@@ -1,0 +1,42 @@
+#
+# Cookbook:: kreedy_workstation
+# Resource:: asdf_plugin
+#
+# Copyright:: 2019, Kevin Reedy
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+resource_name :asdf_plugin
+property :plugin_name, String, name_property: true
+
+action :add do
+  package 'asdf'
+  asdf_path = Mixlib::ShellOut.new('brew --prefix asdf')
+  asdf_path.run_command
+
+  execute "asdf plugin-add #{new_resource.plugin_name}" do
+    environment ({ 'ASDF_DIR': asdf_path.stdout.chomp })
+    not_if "asdf plugin-list | grep ^#{new_resource.plugin_name}"
+  end
+end
+
+action :remove do
+  package 'asdf'
+  asdf_path = Mixlib::ShellOut.new('brew --prefix asdf')
+  asdf_path.run_command
+
+  execute "asdf plugin-remove #{new_resource.plugin_name}" do
+    environment ({ 'ASDF_DIR': asdf_path.stdout.chomp })
+    only_if "asdf plugin-list | grep ^#{new_resource.plugin_name}"
+  end
+end
