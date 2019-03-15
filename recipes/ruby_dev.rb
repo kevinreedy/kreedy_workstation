@@ -18,6 +18,11 @@
 
 asdf_plugin 'ruby'
 
+asdf_version 'ruby-2.6.1' do
+  language 'ruby'
+  version '2.6.1'
+end
+
 asdf_version 'ruby-2.6.2' do
   language 'ruby'
   version '2.6.2'
