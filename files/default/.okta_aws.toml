@@ -1,0 +1,6 @@
+[general]
+username="kreedy"
+okta_server="chef.okta.com"
+
+[aliases]
+success = "success-engineering"

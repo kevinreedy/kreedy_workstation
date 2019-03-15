@@ -1,6 +1,6 @@
 #
 # Cookbook:: kreedy_workstation
-# Recipe:: default
+# Recipe:: okta_aws
 #
 # Copyright:: 2019, Kevin Reedy
 #
@@ -16,10 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if node['platform'] == 'mac_os_x'
-  include_recipe 'kreedy_workstation::macos_packages'
-  include_recipe 'kreedy_workstation::macos_dock'
-end
+homebrew_tap 'chef/okta_aws'
+package 'python'
+package 'okta_aws'
 
-include_recipe 'kreedy_workstation::dotfiles'
-include_recipe 'kreedy_workstation::okta_aws'
+cookbook_file '/Users/kreedy/.okta_aws.toml' do
+  source '.okta_aws.toml'
+end
