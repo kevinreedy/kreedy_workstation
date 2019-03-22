@@ -12,3 +12,4 @@ source_url 'https://github.com/kevinreedy/kreedy_workstation'
 supports 'mac_os_x'
 
 depends 'mac-app-store'
+depends 'macos'

@@ -26,3 +26,5 @@ raise 'Sign into the Mac App Store' if signed_in.error?
 # Install Apps
 mac_app_store_app 'Moom'
 mac_app_store_app 'Pixelmator'
+
+# TODO: Resource homebrew_cask from a cookbook is overriding the resource from the client.
