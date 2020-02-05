@@ -20,7 +20,7 @@
 %w(
   .ssh
 ).each do |d|
-  directory "/Users/kreedy/#{d}"
+  directory "#{ENV['HOME']}/#{d}"
 end
 
 # Add files
@@ -30,7 +30,7 @@ end
   .tmux.conf
 ).each do |f|
 
-  cookbook_file "/Users/kreedy/#{f}" do
+  cookbook_file "#{ENV['HOME']}/#{f}" do
     source f
   end
 end

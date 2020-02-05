@@ -20,6 +20,6 @@ homebrew_tap 'chef/okta_aws'
 package 'python'
 package 'okta_aws'
 
-cookbook_file '/Users/kreedy/.okta_aws.toml' do
+cookbook_file "#{ENV['HOME']}/.okta_aws.toml" do
   source '.okta_aws.toml'
 end

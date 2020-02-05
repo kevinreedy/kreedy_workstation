@@ -28,14 +28,14 @@ end
 #   not_if 'env | grep SHELL=/bin/zsh'
 # end
 
-git '/Users/kreedy/.oh-my-zsh' do
+git "#{ENV['HOME']}/.oh-my-zsh" do
   repository 'https://github.com/robbyrussell/oh-my-zsh.git'
   reference 'master'
   action :checkout
-  not_if 'test -d /Users/kreedy/.oh-my-zsh'
-  only_if { ::File.exist?('/Users/kreedy') }
+  not_if "test -d #{ENV['HOME']}/.oh-my-zsh"
+  only_if { ::File.exist?(ENV['HOME']) }
 end
 
-cookbook_file '/Users/kreedy/.zshrc' do
+cookbook_file "#{ENV['HOME']}/.zshrc" do
   source '.zshrc'
 end
