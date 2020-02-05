@@ -18,7 +18,6 @@
 
 if node['platform'] == 'mac_os_x'
   include_recipe 'kreedy_workstation::macos_packages'
-  include_recipe 'kreedy_workstation::macos_dock'
 end
 
 include_recipe 'kreedy_workstation::dotfiles'
