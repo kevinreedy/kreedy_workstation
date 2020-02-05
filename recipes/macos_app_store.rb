@@ -25,4 +25,3 @@ raise 'Sign into the Mac App Store' if signed_in.error?
 
 # Install Apps
 mac_app_store_app 'Moom'
-mac_app_store_app 'Pixelmator'
