@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: chef/chefdk:3.8.16
+      - image: chef/chefdk:latest
 
     working_directory: ~/repo
 
@@ -16,5 +16,5 @@ jobs:
       - run:
           name: lint
           command: |
+            export CHEF_LICENSE=accept
             chef exec cookstyle
-            chef exec foodcritic --epic-fail any .
