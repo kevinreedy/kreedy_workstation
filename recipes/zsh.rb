@@ -18,7 +18,7 @@
 
 # TODO: linux
 
-if node['platform'] == 'mac_os_x'
+if platform?('mac_os_x')
   package 'zsh'
   package 'zsh-completions'
 end

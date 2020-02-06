@@ -29,7 +29,6 @@ end
   .ssh/authorized_keys
   .tmux.conf
 ).each do |f|
-
   cookbook_file "#{ENV['HOME']}/#{f}" do
     source f
   end
