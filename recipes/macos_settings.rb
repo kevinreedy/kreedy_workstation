@@ -1,6 +1,6 @@
 #
 # Cookbook:: kreedy_workstation
-# Recipe:: default
+# Recipe:: macos_settings
 #
 # Copyright:: 2020, Kevin Reedy
 #
@@ -16,11 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if platform?('mac_os_x')
-  include_recipe 'kreedy_workstation::macos_packages'
-  include_recipe 'kreedy_workstation::macos_settings'
-end
+directory "#{ENV['HOME']}/Screenshots"
 
-include_recipe 'kreedy_workstation::dotfiles'
-include_recipe 'kreedy_workstation::okta_aws'
-include_recipe 'kreedy_workstation::ruby_dev'
+macos_userdefaults 'set screenshots directory' do
+  domain 'com.apple.screencapture'
+  key 'location'
+  value "#{ENV['HOME']}/Screenshots"
+end
