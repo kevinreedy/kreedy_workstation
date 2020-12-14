@@ -1,6 +1,6 @@
 #
 # Cookbook:: kreedy_workstation
-# Recipe:: okta_aws
+# Recipe:: macos_settings
 #
 # Copyright:: 2020, Kevin Reedy
 #
@@ -16,10 +16,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-homebrew_tap 'chef/okta_aws'
-package 'python'
-package 'okta_aws'
+directory "#{ENV['HOME']}/Screenshots"
 
-cookbook_file "#{ENV['HOME']}/.okta_aws.toml" do
-  source '.okta_aws.toml'
+macos_userdefaults 'set screenshots directory' do
+  domain 'com.apple.screencapture'
+  key 'location'
+  value "#{ENV['HOME']}/Screenshots"
 end

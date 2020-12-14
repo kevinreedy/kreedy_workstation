@@ -2,7 +2,7 @@
 # Cookbook:: kreedy_workstation
 # Recipe:: zsh
 #
-# Copyright:: 2019, Kevin Reedy
+# Copyright:: 2020, Kevin Reedy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 # TODO: linux
 
-if node['platform'] == 'mac_os_x'
+if platform?('mac_os_x')
   package 'zsh'
   package 'zsh-completions'
 end
@@ -28,14 +28,14 @@ end
 #   not_if 'env | grep SHELL=/bin/zsh'
 # end
 
-git '/Users/kreedy/.oh-my-zsh' do
+git "#{ENV['HOME']}/.oh-my-zsh" do
   repository 'https://github.com/robbyrussell/oh-my-zsh.git'
   reference 'master'
   action :checkout
-  not_if 'test -d /Users/kreedy/.oh-my-zsh'
-  only_if { ::File.exist?('/Users/kreedy') }
+  not_if "test -d #{ENV['HOME']}/.oh-my-zsh"
+  only_if { ::File.exist?(ENV['HOME']) }
 end
 
-cookbook_file '/Users/kreedy/.zshrc' do
+cookbook_file "#{ENV['HOME']}/.zshrc" do
   source '.zshrc'
 end

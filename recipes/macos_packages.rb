@@ -2,7 +2,7 @@
 # Cookbook:: kreedy_workstation
 # Recipe:: macos_packages
 #
-# Copyright:: 2019, Kevin Reedy
+# Copyright:: 2020, Kevin Reedy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -19,9 +19,11 @@
 # Add Homebrew Sources
 homebrew_tap 'habitat-sh/habitat'
 homebrew_tap 'heroku/brew'
+homebrew_tap 'hbagdi/deck'
 
 # Install Homebrew Packages
 package 'awscli'
+package 'deck'
 package 'gpg'
 package 'hab'
 package 'heroku'
@@ -33,34 +35,32 @@ package 'tmux'
 package 'watch'
 package 'wget'
 
-# TODO: see if we need these
-# libxml2
-# libxslt
-# reattach-to-user-namespace
-
 # Install Homebrew Cask Packages
-homebrew_cask '1password'
 homebrew_cask 'atom'
 homebrew_cask 'docker'
 homebrew_cask 'firefox'
 homebrew_cask 'google-backup-and-sync'
-homebrew_cask 'google-chrome'
+homebrew_cask 'insomnia'
 homebrew_cask 'iterm2'
 homebrew_cask 'ngrok'
-homebrew_cask 'ringcentral-meetings'
 homebrew_cask 'signal'
 homebrew_cask 'skitch'
-homebrew_cask 'slack'
 homebrew_cask 'vagrant'
 homebrew_cask 'virtualbox'
 homebrew_cask 'virtualbox-extension-pack'
 homebrew_cask 'visual-studio-code'
 homebrew_cask 'vlc'
-homebrew_cask 'zoomus'
 
-# TODO: see if we need these
-# flux - do we still need in mojave?
-# google-drive - which one
+# Don't manage these apps with homebrew, if they are managed by Fleetsmith
+unless ::File.exist?('/Applications/Fleetsmith.app')
+  homebrew_cask '1password'
+  homebrew_cask 'google-chrome'
+  homebrew_cask 'slack'
+  homebrew_cask 'zoomus'
+end
+
+# TODO: Add support for these
+# adobe cc
 # ms office
 
 # Add apps from App Store

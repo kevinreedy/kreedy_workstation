@@ -1,6 +1,3 @@
 [general]
-username="kreedy"
-okta_server="chef.okta.com"
-
-[aliases]
-success = "success-engineering"
+username="kevin.reedy"
+okta_server="konghq.okta.com"

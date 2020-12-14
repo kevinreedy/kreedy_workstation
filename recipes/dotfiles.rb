@@ -2,7 +2,7 @@
 # Cookbook:: kreedy_workstation
 # Recipe:: dotfiles
 #
-# Copyright:: 2019, Kevin Reedy
+# Copyright:: 2020, Kevin Reedy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@
 %w(
   .ssh
 ).each do |d|
-  directory "/Users/kreedy/#{d}"
+  directory "#{ENV['HOME']}/#{d}"
 end
 
 # Add files
@@ -29,8 +29,7 @@ end
   .ssh/authorized_keys
   .tmux.conf
 ).each do |f|
-
-  cookbook_file "/Users/kreedy/#{f}" do
+  cookbook_file "#{ENV['HOME']}/#{f}" do
     source f
   end
 end

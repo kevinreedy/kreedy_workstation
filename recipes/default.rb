@@ -2,7 +2,7 @@
 # Cookbook:: kreedy_workstation
 # Recipe:: default
 #
-# Copyright:: 2019, Kevin Reedy
+# Copyright:: 2020, Kevin Reedy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,9 +16,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-if node['platform'] == 'mac_os_x'
+if platform?('mac_os_x')
   include_recipe 'kreedy_workstation::macos_packages'
-  include_recipe 'kreedy_workstation::macos_dock'
+  include_recipe 'kreedy_workstation::macos_settings'
 end
 
 include_recipe 'kreedy_workstation::dotfiles'

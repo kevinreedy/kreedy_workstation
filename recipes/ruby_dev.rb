@@ -2,7 +2,7 @@
 # Cookbook:: kreedy_workstation
 # Recipe:: ruby_dev
 #
-# Copyright:: 2019, Kevin Reedy
+# Copyright:: 2020, Kevin Reedy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,14 +18,9 @@
 
 asdf_plugin 'ruby'
 
-asdf_version 'ruby-2.6.1' do
+asdf_version 'ruby-2.6.5' do
   language 'ruby'
-  version '2.6.1'
-end
-
-asdf_version 'ruby-2.6.2' do
-  language 'ruby'
-  version '2.6.2'
+  version '2.6.5'
 end
 
 package 'postgresql'

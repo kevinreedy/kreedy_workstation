@@ -2,7 +2,7 @@
 # Cookbook:: kreedy_workstation
 # Recipe:: macos_app_store
 #
-# Copyright:: 2019, Kevin Reedy
+# Copyright:: 2020, Kevin Reedy
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,4 +25,3 @@ raise 'Sign into the Mac App Store' if signed_in.error?
 
 # Install Apps
 mac_app_store_app 'Moom'
-mac_app_store_app 'Pixelmator'
